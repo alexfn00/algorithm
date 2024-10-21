@@ -52,10 +52,6 @@ def normal_cost(bulbs):
         cost += 1
         print('\tbulbs:', cost, bulbs)
   return cost
-
-bulbs = [0, 1, 0]
-cost = normal_cost(bulbs)
-print('cost =', cost)
 ```
 - Result
 ```bash 
@@ -127,12 +123,11 @@ def greedy_cost(bulbs):
   print('origin:', bulbs)
   cost = 0
   for index, bulb in enumerate(bulbs):
-    state = bulb     # state记录当前状态：0或1
-    if cost % 2 != 0: state = int(not bulb)   # cost为奇数时，表示需要翻转后续元素，但这里只记录，不翻转，当cost变为偶数时，表示后续元素从奇数状态再次翻转回来，相当于没翻转。
+    state = bulb     # 记录当前状态：0或1
+    if cost % 2 != 0: state = int(not bulb)   # cost为奇数时表示翻转
     
-    # 如果bulb=1, state=0
-    if state == 0:  
-      cost += 1   #bulbs[index]==1时，无实际上不用翻转，但需要增加一次cost，目的是为了下一个元素的计算
+    if state == 0:  # 当前状态为0时，增加一次开关操作
+      cost += 1
 
       if bulbs[index]  == 0:
         bulbs[index] = 1
