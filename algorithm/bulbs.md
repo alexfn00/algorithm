@@ -140,7 +140,7 @@ cost = greedy_cost(bulbs)
 print('cost =', cost)
 ```
 
-Result
+运行结果
 ```
 origin: [0, 1, 0]
 bulbs: 0 [1, 1, 0]
